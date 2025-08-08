@@ -18,19 +18,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          repository: mcmtroffaes/pycddlib
+          ref: 3.0.2
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
 
       - name: Set up Python
         run: uv python install 3.12
-
-      # clone the pycddlib repo and checkout 3.0.2
-      - name: Clone pycddlib repo
-        run: git clone https://github.com/mcmtroffaes/pycddlib.git
-
-      - name: Checkout pycddlib 3.0.2
-        run: cd pycddlib && git checkout 3.0.2
 
       - name: Install dependencies (Linux)
         if: matrix.os == 'ubuntu-latest'
