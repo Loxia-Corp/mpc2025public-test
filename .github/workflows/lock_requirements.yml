@@ -1,0 +1,20 @@
+name: lock requirements
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  lock_requirements:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Lock requirements
+        run: uv pip compile requirements.txt -o locked-requirements.txt --emit-find-links --universal --python-version 3.12
+      - name: push locked requirements
+        run: git add locked-requirements.txt && git commit -m "Lock requirements" > /dev/null && git push || echo "no changes in the lock file"
