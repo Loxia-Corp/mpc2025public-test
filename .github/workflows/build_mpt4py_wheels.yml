@@ -17,6 +17,7 @@ jobs:
         with:
           repository: Loxia-Corp/mpc2025private_test
           ref: ted/wheels
+          token: ${{ secrets.MPC2025PRIVATE_TOKEN }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
