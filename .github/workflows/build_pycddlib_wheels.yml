@@ -27,7 +27,7 @@ jobs:
 
       # clone the pycddlib repo and checkout 3.0.2
       - name: Clone pycddlib repo
-        run: git clone https://github.com/PyCDDLib/pycddlib.git
+        run: git clone https://github.com/mcmtroffaes/pycddlib.git
 
       - name: Checkout pycddlib 3.0.2
         run: cd pycddlib && git checkout 3.0.2
