@@ -1,0 +1,9 @@
+icecream
+numpy
+scipy
+matplotlib
+control
+casadi
+mpc2025private
+--find-links https://github.com/Loxia-Corp/mpc2025public-test/releases/expanded_assets/mpc2025private_wheels
+--find-links https://github.com/Loxia-Corp/mpc2025public-test/releases/expanded_assets/pycddlib_wheels
