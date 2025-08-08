@@ -8,14 +8,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["ubuntu-latest", "macos-latest"]
+        os: ["ubuntu-latest"]
 
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: PREDICT-EPFL/mpt4py
+          repository: Loxia-Corp/mpc2025private_test
           ref: ted/wheels
 
       - name: Install uv
