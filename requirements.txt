@@ -1,5 +1,5 @@
 icecream
-numpy
+numpy<=2.2
 scipy
 matplotlib
 control
