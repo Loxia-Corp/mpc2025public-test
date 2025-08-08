@@ -14,7 +14,12 @@ pip install locked-requirements.txt
 
 # Updating the environment
 
-If we ever
+If the `locked-requirements.txt` changes, pull the latest version of this repo, activate the environment again and simply reinstall the dependencies:
+```bash
+git pull
+conda activate mpc2025
+pip install locked-requirements.txt
+```
 
 # Relocking the dependencies (for TAs)
 
