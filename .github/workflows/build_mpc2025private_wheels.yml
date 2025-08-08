@@ -1,0 +1,39 @@
+name: build mpc2025private wheels
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_wheel:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ["ubuntu-latest"]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: Loxia-Corp/mpc2025private_test
+          token: ${{ secrets.MPC2025PRIVATE_TOKEN }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: Build wheel
+        run: uv build --wheel
+
+      - name: Release current commit
+        uses: ncipollo/release-action@v1.18.0
+        with:
+          artifacts: "dist/*.whl"
+          tag: "mpc2025private_wheels"
+          name: "mpc2025private_wheels"
+          removeArtifacts: false
+          allowUpdates: true
+          replacesArtifacts: true
+          makeLatest: false
