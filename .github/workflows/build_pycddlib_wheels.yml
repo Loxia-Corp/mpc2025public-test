@@ -8,7 +8,7 @@ env:
   # UV_SYSTEM_PYTHON: 1
 
 jobs:
-  build_pycddlib:
+  build_wheel:
     strategy:
       fail-fast: false
       matrix:
@@ -53,3 +53,14 @@ jobs:
       #   run: uv build --wheel
 
       # TODO: upload wheel
+      - name: Release current commit
+        uses: ncipollo/release-action@v1.18.0
+        with:
+          artifacts: "dist/*.whl"
+          # token: "${{ secrets.PUBLISH_ACCESS_TOKEN }}"
+          tag: "pycddlib_wheels"
+          name: "pycddlib_wheels"
+          removeArtifacts: false
+          allowUpdates: true
+          replacesArtifacts: true
+          makeLatest: false
